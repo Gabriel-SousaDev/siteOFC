@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do administrador — 608 Flores e Floricultura</title>
+    <link rel="stylesheet" href="../STYLE/style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="container barra-nav">
+            <a href="../../index.html" class="logo"><span class="logo-flor">✿</span> 608 Flores</a>
+
+            <button class="menu-alterna" aria-label="Abrir menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="menu">
+                <li><a href="../../vendas.html" class="menu-link">Ver loja</a></li>
+                <li><a href="../../index.html" class="menu-link">Início do site</a></li>
+                <li>
+                    <button class="alterna-tema" aria-label="Alternar tema claro ou escuro" type="button">
+                        <span class="alterna-tema-bolha"></span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="banner-pagina">
+        <div class="container revelar">
+            <p class="eyebrow" style="color: var(--amarelo);">Área restrita</p>
+            <h1>Painel do administrador</h1>
+            <p>Gerencie o catálogo de buquês: adicione produtos, ajuste preços e controle o estoque disponível para venda.</p>
+        </div>
+    </section>
+
+    <section class="secao" style="padding-top: 2rem;">
+        <div class="container">
+
+            <div class="resumo-admin revelar">
+                <div class="estatistica-cartao">
+                    <span class="estatistica-numero" id="resumo-total">0</span>
+                    <span class="estatistica-legenda">Produtos cadastrados</span>
+                </div>
+                <div class="estatistica-cartao">
+                    <span class="estatistica-numero" id="resumo-estoque">0</span>
+                    <span class="estatistica-legenda">Unidades em estoque</span>
+                </div>
+                <div class="estatistica-cartao">
+                    <span class="estatistica-numero" id="resumo-esgotados">0</span>
+                    <span class="estatistica-legenda">Produtos esgotados</span>
+                </div>
+                <div class="estatistica-cartao">
+                    <span class="estatistica-numero" id="resumo-valor">R$ 0,00</span>
+                    <span class="estatistica-legenda">Valor total em estoque</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="secao secao--alt" style="padding-block: 2.5rem;">
+        <div class="container revelar">
+            <p class="eyebrow">Novo produto</p>
+            <h2 style="font-size: 1.6rem;">Adicionar ao catálogo</h2>
+
+            <form id="form-novo-produto" class="formulario-produto">
+                <div class="campo">
+                    <label for="novo-nome">Nome do buquê</label>
+                    <input type="text" id="novo-nome" placeholder="Ex.: Buquê de Tulipas" required>
+                </div>
+                <div class="campo">
+                    <label for="novo-categoria">Categoria</label>
+                    <input type="text" id="novo-categoria" placeholder="Ex.: tulipas" required>
+                </div>
+                <div class="campo">
+                    <label for="novo-preco">Preço (R$)</label>
+                    <input type="number" id="novo-preco" min="0" step="0.01" placeholder="0,00" required>
+                </div>
+                <div class="campo">
+                    <label for="novo-estoque">Estoque inicial</label>
+                    <input type="number" id="novo-estoque" min="0" step="1" placeholder="0" required>
+                </div>
+                <div class="campo">
+                    <label for="novo-imagem">Imagem principal (caminho)</label>
+                    <input type="text" id="novo-imagem" placeholder="../../IMG/BuqueTulipas.jpg" required>
+                </div>
+                <div class="campo">
+                    <label for="novo-imagem-alt">Imagem alternativa (opcional)</label>
+                    <input type="text" id="novo-imagem-alt" placeholder="../../IMG/BuqueTulipas2.jpg">
+                </div>
+                <div class="campo campo-descricao">
+                    <label for="novo-descricao">Descrição</label>
+                    <input type="text" id="novo-descricao" placeholder="Uma frase curta sobre o buquê">
+                </div>
+                <button type="submit" class="botao botao--primario">Adicionar produto</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="secao" style="padding-top: 2.5rem;">
+        <div class="container">
+            <p class="eyebrow">Catálogo atual</p>
+            <h2 style="font-size: 1.6rem;">Editar preço e estoque</h2>
+            <p class="lead">As alterações são salvas automaticamente e já aparecem na loja.</p>
+
+            <div id="lista-produtos" class="lista-produtos revelar"></div>
+        </div>
+    </section>
+
+    <footer class="rodape">
+        <p class="rodape-copy">© 2026 608 Flores e Floricultura. Todos os direitos reservados.</p>
+    </footer>
+
+    <div id="aviso-admin" class="aviso-admin" role="status" aria-live="polite"></div>
+
+    <script src="../../script.js"></script>
+    <script src="../../SCRIPTS/produtos.js"></script>
+    <script src="../../SCRIPTS/admin.js"></script>
+</body>
+</html>

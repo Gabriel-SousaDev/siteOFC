@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar — 608 Flores e Floricultura</title>
+    <link rel="stylesheet" href="../../STYLE/style.css">
+</head>
+<body class="login-page pagina-acesso">
+
+    <div class="cartao-acesso revelar">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom: 0.4rem;">
+            <a href="../../index.html" class="cartao-acesso-voltar" style="margin-bottom:0;">← Voltar para a loja</a>
+            <button class="alterna-tema" aria-label="Alternar tema claro ou escuro" type="button">
+                <span class="alterna-tema-bolha"></span>
+            </button>
+        </div>
+
+        <img src="../../IMG/userlogin.png" alt="Ícone de usuário" class="login-image">
+        <h1 style="font-size: 1.7rem;">Sua conta na 608 Flores</h1>
+
+        <div class="abas-acesso" role="tablist">
+            <button class="aba-acesso ativa" data-alvo="form-entrar" type="button">Entrar</button>
+            <button class="aba-acesso" data-alvo="form-cadastrar" type="button">Cadastrar</button>
+        </div>
+
+        <form id="form-entrar" class="formulario-acesso ativo">
+            <div class="campo">
+                <label for="email-entrar">E-mail</label>
+                <input type="email" id="email-entrar" placeholder="Digite seu e-mail" required>
+            </div>
+            <div class="campo campo-senha">
+                <label for="senha-entrar">Senha</label>
+                <input type="password" id="senha-entrar" placeholder="Digite sua senha" required>
+                <button type="button" class="alterna-senha" data-campo="senha-entrar">mostrar</button>
+            </div>
+            <button type="submit" class="botao botao--primario botao--bloco">Entrar</button>
+            <p class="mensagem-acesso" id="mensagem-entrar"></p>
+        </form>
+
+        <form id="form-cadastrar" class="formulario-acesso">
+            <div class="campo">
+                <label for="nome-cadastro">Nome</label>
+                <input type="text" id="nome-cadastro" placeholder="Digite seu nome" required>
+            </div>
+            <div class="campo">
+                <label for="email-cadastro">E-mail</label>
+                <input type="email" id="email-cadastro" placeholder="Digite seu e-mail" required>
+            </div>
+            <div class="campo campo-senha">
+                <label for="senha-cadastro">Senha</label>
+                <input type="password" id="senha-cadastro" placeholder="Crie uma senha" required>
+                <button type="button" class="alterna-senha" data-campo="senha-cadastro">mostrar</button>
+            </div>
+            <button type="submit" class="botao botao--primario botao--bloco">Cadastrar</button>
+            <p class="mensagem-acesso" id="mensagem-cadastrar"></p>
+        </form>
+
+        <p class="rodape-acesso">Ao continuar, você concorda em receber novidades e promoções da 608 Flores.</p>
+    </div>
+
+    <script src="../../SCRIPTS/script.js"></script>
+    <script src="../../SCRIPTS/login.js"></script>
+</body>
+</html>
