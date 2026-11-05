@@ -71,10 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (e.target.classList.contains('campo-estoque')) {
-      produto.estoque = Math.max(0, parseInt(e.target.value, 10) || 0);
+      const novo = Math.max(0, parseInt(e.target.value, 10) || 0);
+      if (novo !== produto.estoque) movimentar(produto.id, 'ajuste', novo - produto.estoque, null, 'Ajuste manual no catálogo');
+      produto.estoque = obterProdutos().find(p => p.id === produto.id).estoque;
       e.target.value = produto.estoque;
-      salvarProdutos(produtos);
-      atualizarResumo(produtos);
+      atualizarResumo(obterProdutos());
       mostrarAviso(`Estoque de "${produto.nome}" atualizado para ${produto.estoque} unidade(s).`);
     }
   });
@@ -121,8 +122,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const produtos = obterProdutos();
-    produtos.push({ id: gerarIdProduto(nome), nome, categoria, descricao, preco, estoque, imagem, imagemAlt });
+    const id = gerarIdProduto(nome);
+    const custo = Math.max(0, parseFloat(document.getElementById('novo-custo').value) || 0);
+    produtos.push({ id, nome, categoria, descricao, preco, estoque: 0, custoMedio: custo, imagem, imagemAlt });
     salvarProdutos(produtos);
+    if (estoque > 0) movimentar(id, 'compra', estoque, custo, 'Estoque inicial');
 
     formNovo.reset();
     mostrarAviso(`"${nome}" adicionado ao catálogo.`);

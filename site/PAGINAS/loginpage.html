@@ -10,7 +10,7 @@
 
     <div class="cartao-acesso revelar">
         <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom: 0.4rem;">
-            <a href="../../index.html" class="cartao-acesso-voltar" style="margin-bottom:0;">← Voltar para a loja</a>
+            <a href="../index.html" class="cartao-acesso-voltar" style="margin-bottom:0;">← Voltar para a loja</a>
             <button class="alterna-tema" aria-label="Alternar tema claro ou escuro" type="button">
                 <span class="alterna-tema-bolha"></span>
             </button>
@@ -36,6 +36,7 @@
             </div>
             <button type="submit" class="botao botao--primario botao--bloco">Entrar</button>
             <p class="mensagem-acesso" id="mensagem-entrar"></p>
+            <p style="text-align:center;margin:0;"><button type="button" id="abrir-recuperar" class="alterna-senha" style="position:static;text-decoration:underline;">Esqueci minha senha</button></p>
         </form>
 
         <form id="form-cadastrar" class="formulario-acesso">
@@ -49,17 +50,39 @@
             </div>
             <div class="campo campo-senha">
                 <label for="senha-cadastro">Senha</label>
-                <input type="password" id="senha-cadastro" placeholder="Crie uma senha" required>
+                <input type="password" id="senha-cadastro" placeholder="Crie uma senha (mín. 8 caracteres)" minlength="8" required>
                 <button type="button" class="alterna-senha" data-campo="senha-cadastro">mostrar</button>
             </div>
             <button type="submit" class="botao botao--primario botao--bloco">Cadastrar</button>
             <p class="mensagem-acesso" id="mensagem-cadastrar"></p>
         </form>
 
+        <form id="form-recuperar" class="formulario-acesso">
+            <p>Informe o e-mail e o nome do seu cadastro e escolha uma nova senha.</p>
+            <div class="campo">
+                <label for="email-recuperar">E-mail</label>
+                <input type="email" id="email-recuperar" placeholder="E-mail cadastrado" required>
+            </div>
+            <div class="campo">
+                <label for="nome-recuperar">Nome cadastrado</label>
+                <input type="text" id="nome-recuperar" placeholder="Nome usado no cadastro" required>
+            </div>
+            <div class="campo campo-senha">
+                <label for="senha-recuperar">Nova senha</label>
+                <input type="password" id="senha-recuperar" placeholder="Mínimo de 8 caracteres" minlength="8" required>
+                <button type="button" class="alterna-senha" data-campo="senha-recuperar">mostrar</button>
+            </div>
+            <button type="submit" class="botao botao--primario botao--bloco">Alterar senha</button>
+            <button type="button" id="voltar-entrar" class="botao botao--contorno botao--bloco">Voltar ao login</button>
+            <p class="mensagem-acesso" id="mensagem-recuperar"></p>
+        </form>
+
         <p class="rodape-acesso">Ao continuar, você concorda em receber novidades e promoções da 608 Flores.</p>
     </div>
 
     <script src="../../SCRIPTS/script.js"></script>
+    <script src="../../SCRIPTS/dados.js"></script>
+    <script src="../../SCRIPTS/auth-admin.js"></script>
     <script src="../../SCRIPTS/login.js"></script>
 </body>
 </html>

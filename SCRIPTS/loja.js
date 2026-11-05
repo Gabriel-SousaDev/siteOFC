@@ -192,12 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const mensagem = `Olá! Gostaria de fazer o seguinte pedido na 608 Flores:%0A%0A${linhas.join('%0A')}%0A%0ATotal: ${formatarPrecoBRL(subtotal)}`;
       window.open(`https://wa.me/5561999999999?text=${mensagem}`, '_blank');
 
-      const produtos = obterProdutos();
-      itens.forEach(item => {
-        const produto = produtos.find(p => p.id === item.id);
-        if (produto) produto.estoque = Math.max(0, produto.estoque - item.quantidade);
-      });
-      salvarProdutos(produtos);
+      criarPedido(itens);
       salvarCarrinho([]);
       renderizarProdutos();
       renderizarPainelCarrinho();

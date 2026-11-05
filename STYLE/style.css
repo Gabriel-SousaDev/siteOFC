@@ -968,3 +968,28 @@ p{ margin: 0 0 1em; max-width: 62ch; color: var(--tinta); }
   opacity: 1;
   transform: translate(-50%, 0);
 }
+
+/* ---------- Painel: abas, gráfico, tabelas ---------- */
+.abas-vendas button.aba-link{ background:none; border:0; cursor:pointer; font:inherit; }
+.abas-vendas .aba-link.ativa{ color: var(--vinho); border-bottom: 2px solid var(--vinho); }
+.barra-periodo{ display:flex; flex-wrap:wrap; gap:.5rem; align-items:center; margin: 1rem auto; }
+.barra-periodo .ativa{ background: var(--salvia); color: var(--amarelo-texto); }
+.barra-periodo select, .painel-aba select, .painel-aba input[type="date"]{ padding:.55rem .7rem; border:1.5px solid var(--linha); border-radius:10px; background:var(--fundo-alt); color:var(--tinta); font:inherit; }
+.titulo-painel{ font-size:1.2rem; margin: 1.6rem 0 .6rem; }
+.painel-aba[hidden]{ display:none; }
+.pedido{ flex-wrap:wrap; }
+.pedido small{ display:block; color:var(--tinta-suave); }
+.grafico{ display:flex; gap:3px; align-items:flex-end; height:180px; overflow-x:auto; padding-bottom:.2rem; }
+.grafico-col{ flex:1 0 14px; display:flex; flex-direction:column; align-items:center; height:100%; font-size:.65rem; color:var(--tinta-suave); }
+.grafico-barras{ flex:1; width:100%; display:flex; align-items:flex-end; gap:1px; }
+.grafico i, .legenda-grafico i{ display:inline-block; flex:1; min-height:1px; border-radius:3px 3px 0 0; }
+.b-rec{ background: var(--salvia-escura); } .b-desp{ background: var(--vinho); }
+.legenda-grafico{ font-size:.85rem; } .legenda-grafico i{ width:10px; height:10px; margin:0 .3rem 0 .8rem; border-radius:50%; }
+.tabela-rolavel{ overflow-x:auto; margin-top:1rem; }
+.tabela-admin{ width:100%; border-collapse:collapse; font-size:.9rem; }
+.tabela-admin th, .tabela-admin td{ padding:.5rem .6rem; border-bottom:1px solid var(--linha); text-align:left; white-space:nowrap; }
+.whatsapp-flutuante{ position:fixed; right:1.2rem; bottom:1.2rem; z-index:60; width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:#25D366; color:#fff; box-shadow:var(--sombra); transition: transform var(--duracao-hover) ease; }
+.whatsapp-flutuante:hover{ transform: scale(1.08); }
+.rodape-social svg{ display:block; }
+.pagina-termos .container{ max-width:820px; }
+.pagina-termos h2{ font-size:1.3rem; margin-top:1.8rem; }

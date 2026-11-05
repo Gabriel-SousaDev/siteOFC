@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel do administrador — 608 Flores e Floricultura</title>
-    <link rel="stylesheet" href="../STYLE/style.css">
+    <link rel="stylesheet" href="../../STYLE/style.css">
+    <style>html{visibility:hidden}</style>
+    <script src="../../SCRIPTS/produtos.js"></script>
+    <script src="../../SCRIPTS/dados.js"></script>
+    <script src="../../SCRIPTS/auth-admin.js" data-guard="1"></script>
 </head>
 <body>
     <header class="cabecalho">
         <div class="container barra-nav">
-            <a href="../../index.html" class="logo"><span class="logo-flor">✿</span> 608 Flores</a>
+            <a href="../index.html" class="logo"><span class="logo-flor">✿</span> 608 Flores</a>
 
             <button class="menu-alterna" aria-label="Abrir menu" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
 
             <ul class="menu">
-                <li><a href="../../vendas.html" class="menu-link">Ver loja</a></li>
-                <li><a href="../../index.html" class="menu-link">Início do site</a></li>
+                <li><a href="vendas.html" class="menu-link">Ver loja</a></li>
+                <li><a href="../index.html" class="menu-link">Início do site</a></li>
+                <li><button type="button" id="sair-admin" class="menu-link" style="background:none;border:0;cursor:pointer;font:inherit">Sair</button></li>
                 <li>
                     <button class="alterna-tema" aria-label="Alternar tema claro ou escuro" type="button">
                         <span class="alterna-tema-bolha"></span>
@@ -31,10 +36,34 @@
         <div class="container revelar">
             <p class="eyebrow" style="color: var(--amarelo);">Área restrita</p>
             <h1>Painel do administrador</h1>
-            <p>Gerencie o catálogo de buquês: adicione produtos, ajuste preços e controle o estoque disponível para venda.</p>
+            <p>Acompanhe pedidos, estoque e finanças e gerencie o catálogo de buquês.</p>
         </div>
     </section>
 
+    <nav class="container abas-vendas" id="abas-admin">
+        <button type="button" class="aba-link" data-aba="dashboard">Dashboard</button>
+        <button type="button" class="aba-link" data-aba="pedidos">Pedidos</button>
+        <button type="button" class="aba-link" data-aba="estoque">Estoque</button>
+        <button type="button" class="aba-link" data-aba="financeiro">Financeiro</button>
+        <button type="button" class="aba-link" data-aba="catalogo">Catálogo</button>
+    </nav>
+    <div class="container barra-periodo" id="barra-periodo">
+        <button type="button" class="botao botao--contorno" data-tipo="semana">Semanal</button>
+        <button type="button" class="botao botao--contorno" data-tipo="mes">Mensal</button>
+        <button type="button" class="botao botao--contorno" data-tipo="ano">Anual</button>
+        <button type="button" class="botao botao--contorno" id="periodo-ant" aria-label="Período anterior">‹</button>
+        <strong id="rotulo-periodo"></strong>
+        <button type="button" class="botao botao--contorno" id="periodo-prox" aria-label="Próximo período">›</button>
+        <select id="exportar-aba" aria-label="Planilha"><option value="pedidos">Pedidos e vendas</option><option value="estoque">Entradas e saídas de estoque</option><option value="lancamentos">Receitas e despesas</option><option value="resumo">Resumo financeiro</option></select>
+        <button type="button" class="botao botao--primario" id="exportar">Exportar</button>
+    </div>
+    <div class="container">
+        <section class="painel-aba" id="aba-dashboard"></section>
+        <section class="painel-aba" id="aba-pedidos" hidden></section>
+        <section class="painel-aba" id="aba-estoque" hidden></section>
+        <section class="painel-aba" id="aba-financeiro" hidden></section>
+    </div>
+    <div class="painel-aba" id="aba-catalogo" hidden>
     <section class="secao" style="padding-top: 2rem;">
         <div class="container">
 
@@ -83,6 +112,10 @@
                     <input type="number" id="novo-estoque" min="0" step="1" placeholder="0" required>
                 </div>
                 <div class="campo">
+                    <label for="novo-custo">Custo unitário (R$)</label>
+                    <input type="number" id="novo-custo" min="0" step="0.01" placeholder="0,00">
+                </div>
+                <div class="campo">
                     <label for="novo-imagem">Imagem principal (caminho)</label>
                     <input type="text" id="novo-imagem" placeholder="../../IMG/BuqueTulipas.jpg" required>
                 </div>
@@ -109,14 +142,16 @@
         </div>
     </section>
 
+    </div>
+
     <footer class="rodape">
         <p class="rodape-copy">© 2026 608 Flores e Floricultura. Todos os direitos reservados.</p>
     </footer>
 
     <div id="aviso-admin" class="aviso-admin" role="status" aria-live="polite"></div>
 
-    <script src="../../script.js"></script>
-    <script src="../../SCRIPTS/produtos.js"></script>
+    <script src="../../SCRIPTS/script.js"></script>
     <script src="../../SCRIPTS/admin.js"></script>
+    <script src="../../SCRIPTS/admin-painel.js"></script>
 </body>
 </html>
